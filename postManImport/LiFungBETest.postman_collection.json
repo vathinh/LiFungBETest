@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "300de206-ca2d-4ba7-8fe6-8c7321fb3209",
+		"name": "LiFungBETest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25981041"
+	},
+	"item": [
+		{
+			"name": "ToDo",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenLifung}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\" : \"testing post todos post api with authen and authorize\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6666/api/v1/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenLifung}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6666/api/v1/todos?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6666/api/v1/todos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"update api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6666/api/v1/todos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6666/api/v1/todos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"todos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"tvt\",\r\n    \"email\": \"tvt@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\":[\"mod\", \"user\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6666/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"tokenLifung\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"tvt\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6666/api/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apiForUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenLifung}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6666/api/v1/res/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6666",
+							"path": [
+								"api",
+								"v1",
+								"res",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mysql-lifung:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: lifung
+    ports:
+      - 3306:3306
