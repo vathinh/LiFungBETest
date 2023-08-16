@@ -7,6 +7,7 @@ import com.tvt.lifungbetest.dto.todo.UpdateTodoRequest;
 import com.tvt.lifungbetest.service.ToDoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,12 @@ public class ToDoController {
     @GetMapping
     public List<ToDoResponse> get() {
         return toDoService.getAllForCurrentUser();
+    }
+
+    @GetMapping("getAll")
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<ToDoResponse> getAll() {
+        return toDoService.getAll();
     }
 
     @PostMapping

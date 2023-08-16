@@ -1,6 +1,5 @@
 package com.tvt.lifungbetest.service.impl;
 
-import com.tvt.lifungbetest.config.security.services.UserDetailsImpl;
 import com.tvt.lifungbetest.dto.todo.ToDoRequest;
 import com.tvt.lifungbetest.dto.todo.ToDoResponse;
 import com.tvt.lifungbetest.dto.todo.UpdateTodoRequest;
@@ -12,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -26,6 +24,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class TodoServiceImpl implements ToDoService {
     private final ToDoRepository toDoRepository;
+
     private final TodoMapper todoMapper;
 
     @Override

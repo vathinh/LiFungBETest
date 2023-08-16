@@ -1,6 +1,6 @@
 package com.tvt.lifungbetest.config.security.jwt;
 
-import com.tvt.lifungbetest.config.security.services.UserDetailsServiceImpl;
+import com.tvt.lifungbetest.service.impl.UserDetailsServiceImpl;
 import java.io.IOException;
 
 import jakarta.servlet.FilterChain;

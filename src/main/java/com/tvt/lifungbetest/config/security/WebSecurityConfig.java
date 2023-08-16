@@ -2,7 +2,7 @@ package com.tvt.lifungbetest.config.security;
 
 import com.tvt.lifungbetest.config.security.jwt.AuthEntryPointJwt;
 import com.tvt.lifungbetest.config.security.jwt.AuthTokenFilter;
-import com.tvt.lifungbetest.config.security.services.UserDetailsServiceImpl;
+import com.tvt.lifungbetest.service.impl.UserDetailsServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

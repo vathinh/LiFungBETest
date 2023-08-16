@@ -1,4 +1,4 @@
-package com.tvt.lifungbetest.config.security.services;
+package com.tvt.lifungbetest.service.impl;
 
 import com.tvt.lifungbetest.model.UserEntity;
 

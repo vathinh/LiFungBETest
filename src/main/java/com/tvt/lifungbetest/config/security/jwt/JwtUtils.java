@@ -1,6 +1,6 @@
 package com.tvt.lifungbetest.config.security.jwt;
 
-import com.tvt.lifungbetest.config.security.services.UserDetailsImpl;
+import com.tvt.lifungbetest.service.impl.UserDetailsImpl;
 import java.security.Key;
 import java.util.Date;
 
@@ -24,6 +24,9 @@ public class JwtUtils {
 
     @Value("${tvt.app.jwtExpirationMs}")
     private int jwtExpirationMs;
+
+    @Value("tvt.app.jwtCookieName")
+    private String jwtCookie;
 
     public String generateJwtToken(Authentication authentication) {
 
@@ -64,7 +67,6 @@ public class JwtUtils {
     }
 
     public ResponseCookie getCleanJwtCookie() {
-        ResponseCookie cookie = ResponseCookie.from("", null).path("/api").build();
-        return cookie;
+        return ResponseCookie.from(jwtCookie, null).path("/api").build();
     }
 }

@@ -1,6 +1,6 @@
 package com.tvt.lifungbetest.config;
 
-import com.tvt.lifungbetest.config.security.services.UserDetailsImpl;
+import com.tvt.lifungbetest.service.impl.UserDetailsImpl;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
